@@ -1,7 +1,6 @@
 #https://hub.docker.com/r/bartekmis/ubuntu-apache/dockerfile
 
 FROM ubuntu:latest
-MAINTAINER SimeonOnSecurity
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -20,7 +19,6 @@ RUN apt-get update && \
     php7.0-xml \
     php7.0-xsl \
     php7.0-zip
-
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
 RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php5/apache2/php.ini
