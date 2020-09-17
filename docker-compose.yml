@@ -1,0 +1,10 @@
+docker-ubuntu-apache:
+  image: simeononsecurity/docker-ubuntu-apache
+  ports:
+    - "80:80"
+    - "8080:8080"
+    - "443:443"
+    - "8443:8443"
+  volumes:
+    - "/var/www":"/etc/apache2/sites-enabled"
+  restart: unless-stopped
