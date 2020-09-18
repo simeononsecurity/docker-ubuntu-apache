@@ -2,6 +2,10 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Reconfigure locale
+RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
+
+#Install Apache, PHP, and set up OWASP ModSecurity Rules
 RUN apt-get update && apt-get -y full-upgrade
 RUN apt-get -y install apache2 apache2-utils php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-fpm libapache2-mod-security2 git htop clamav clamav-daemon 
 RUN a2enmod proxy_fcgi setenvif
